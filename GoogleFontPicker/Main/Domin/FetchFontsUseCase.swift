@@ -15,7 +15,7 @@ final class FetchFontsUseCase {
         self.repository = repository
     }
     
-    func fetchFonts(_ completion: @escaping (Result<FontListEntity, Error>) -> Void) {
+    func fetchFonts(_ completion: @escaping (Result<FontListDTO, Error>) -> Void) {
         repository.fetch(completion)
     }
 }

@@ -30,8 +30,8 @@
 		509BFB1525ECCB340045C946 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFB0525ECCB340045C946 /* NetworkError.swift */; };
 		509BFB1625ECCB340045C946 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFB0625ECCB340045C946 /* NetworkRequest.swift */; };
 		509BFB2825ECD4600045C946 /* FontListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFB2725ECD4600045C946 /* FontListRequest.swift */; };
-		509DDFC925ECBE4A00B4B1A1 /* FontListEntity_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DDFC825ECBE4A00B4B1A1 /* FontListEntity_Tests.swift */; };
-		509DDFCF25ECBEE800B4B1A1 /* FontListEntity.json in Resources */ = {isa = PBXBuildFile; fileRef = 509DDFCE25ECBEE800B4B1A1 /* FontListEntity.json */; };
+		509DDFC925ECBE4A00B4B1A1 /* FontListDTO_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DDFC825ECBE4A00B4B1A1 /* FontListDTO_Tests.swift */; };
+		509DDFCF25ECBEE800B4B1A1 /* FontListDTO.json in Resources */ = {isa = PBXBuildFile; fileRef = 509DDFCE25ECBEE800B4B1A1 /* FontListDTO.json */; };
 		509DDFD725ECBF3400B4B1A1 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DDFD625ECBF3400B4B1A1 /* XCTestCase+Extensions.swift */; };
 		95576037E813CB3B24E67230 /* Pods_GoogleFontPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B81B2A95BD2E702DBEAF526D /* Pods_GoogleFontPicker.framework */; };
 		BC696397F84000015C85E845 /* Pods_GoogleFontPicker_GoogleFontPickerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB5462630CE753CC1125269 /* Pods_GoogleFontPicker_GoogleFontPickerUITests.framework */; };
@@ -89,8 +89,8 @@
 		509BFB0625ECCB340045C946 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		509BFB2725ECD4600045C946 /* FontListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListRequest.swift; sourceTree = "<group>"; };
 		509DDFC725ECBE4A00B4B1A1 /* GoogleFontPickerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoogleFontPickerTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		509DDFC825ECBE4A00B4B1A1 /* FontListEntity_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListEntity_Tests.swift; sourceTree = "<group>"; };
-		509DDFCE25ECBEE800B4B1A1 /* FontListEntity.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FontListEntity.json; sourceTree = "<group>"; };
+		509DDFC825ECBE4A00B4B1A1 /* FontListDTO_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListDTO_Tests.swift; sourceTree = "<group>"; };
+		509DDFCE25ECBEE800B4B1A1 /* FontListDTO.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FontListDTO.json; sourceTree = "<group>"; };
 		509DDFD625ECBF3400B4B1A1 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
 		5345EB520536BE34D79EAF6C /* Pods-GoogleFontPicker-GoogleFontPickerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleFontPicker-GoogleFontPickerUITests.debug.xcconfig"; path = "Target Support Files/Pods-GoogleFontPicker-GoogleFontPickerUITests/Pods-GoogleFontPicker-GoogleFontPickerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		59E2A2693679D46C8CFC3337 /* Pods-GoogleFontPicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleFontPicker.debug.xcconfig"; path = "Target Support Files/Pods-GoogleFontPicker/Pods-GoogleFontPicker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -269,8 +269,8 @@
 		509DDFCD25ECBEAC00B4B1A1 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				509DDFC825ECBE4A00B4B1A1 /* FontListEntity_Tests.swift */,
-				509DDFCE25ECBEE800B4B1A1 /* FontListEntity.json */,
+				509DDFC825ECBE4A00B4B1A1 /* FontListDTO_Tests.swift */,
+				509DDFCE25ECBEE800B4B1A1 /* FontListDTO.json */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -404,7 +404,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				509DDFCF25ECBEE800B4B1A1 /* FontListEntity.json in Resources */,
+				509DDFCF25ECBEE800B4B1A1 /* FontListDTO.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,7 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				509DDFC925ECBE4A00B4B1A1 /* FontListEntity_Tests.swift in Sources */,
+				509DDFC925ECBE4A00B4B1A1 /* FontListDTO_Tests.swift in Sources */,
 				509DDFD725ECBF3400B4B1A1 /* XCTestCase+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
