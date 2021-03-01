@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol FontListRemoteRepositorySpec {
-    func fetch(_ completion: @escaping (Result<FontListEntity, Error>) -> Void)
-}
-
 final class FetchFontsUseCase {
     
     private let repository: FontListRemoteRepositorySpec

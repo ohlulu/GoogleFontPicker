@@ -14,6 +14,8 @@
 		50943BB625EA5DBE00FA68A4 /* GoogleFontPickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50943BB525EA5DBE00FA68A4 /* GoogleFontPickerUITests.swift */; };
 		50943BD725EA677500FA68A4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50943BD625EA677500FA68A4 /* MainViewController.swift */; };
 		50943BE425EA73FE00FA68A4 /* FontEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50943BE325EA73FE00FA68A4 /* FontEntity.swift */; };
+		509BFAC125ECC6780045C946 /* FetchFontsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFAC025ECC6780045C946 /* FetchFontsUseCase.swift */; };
+		509BFAC725ECC7000045C946 /* FontListRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFAC625ECC7000045C946 /* FontListRemoteRepository.swift */; };
 		509DDFC925ECBE4A00B4B1A1 /* FontListEntity_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DDFC825ECBE4A00B4B1A1 /* FontListEntity_Tests.swift */; };
 		509DDFCF25ECBEE800B4B1A1 /* FontListEntity.json in Resources */ = {isa = PBXBuildFile; fileRef = 509DDFCE25ECBEE800B4B1A1 /* FontListEntity.json */; };
 		509DDFD725ECBF3400B4B1A1 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DDFD625ECBF3400B4B1A1 /* XCTestCase+Extensions.swift */; };
@@ -56,6 +58,8 @@
 		50943BB725EA5DBE00FA68A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50943BD625EA677500FA68A4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		50943BE325EA73FE00FA68A4 /* FontEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontEntity.swift; sourceTree = "<group>"; };
+		509BFAC025ECC6780045C946 /* FetchFontsUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchFontsUseCase.swift; sourceTree = "<group>"; };
+		509BFAC625ECC7000045C946 /* FontListRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListRemoteRepository.swift; sourceTree = "<group>"; };
 		509DDFC725ECBE4A00B4B1A1 /* GoogleFontPickerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoogleFontPickerTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		509DDFC825ECBE4A00B4B1A1 /* FontListEntity_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListEntity_Tests.swift; sourceTree = "<group>"; };
 		509DDFCE25ECBEE800B4B1A1 /* FontListEntity.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FontListEntity.json; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 		50943BD525EA671D00FA68A4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				509BFAC525ECC6DA0045C946 /* Repository */,
 				50943BE225EA73E200FA68A4 /* Domin */,
 				50943BE125EA73D300FA68A4 /* View */,
 			);
@@ -181,9 +186,18 @@
 		50943BE225EA73E200FA68A4 /* Domin */ = {
 			isa = PBXGroup;
 			children = (
+				509BFAC025ECC6780045C946 /* FetchFontsUseCase.swift */,
 				50943BE325EA73FE00FA68A4 /* FontEntity.swift */,
 			);
 			path = Domin;
+			sourceTree = "<group>";
+		};
+		509BFAC525ECC6DA0045C946 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				509BFAC625ECC7000045C946 /* FontListRemoteRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		509DDFCD25ECBEAC00B4B1A1 /* Main */ = {
@@ -413,8 +427,10 @@
 			files = (
 				50943BD725EA677500FA68A4 /* MainViewController.swift in Sources */,
 				50943B9425EA5DBC00FA68A4 /* AppDelegate.swift in Sources */,
+				509BFAC725ECC7000045C946 /* FontListRemoteRepository.swift in Sources */,
 				50943B9625EA5DBC00FA68A4 /* SceneDelegate.swift in Sources */,
 				50943BE425EA73FE00FA68A4 /* FontEntity.swift in Sources */,
+				509BFAC125ECC6780045C946 /* FetchFontsUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
