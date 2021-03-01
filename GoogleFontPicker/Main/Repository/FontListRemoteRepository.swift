@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FontListRemoteRepositorySpec {
-    func fetch(_ completion: @escaping (Result<FontListDTO, Error>) -> Void)
+    func fetch(_ completion: @escaping (Result<[FontEntity], Error>) -> Void)
 }
 
 final class FontListRemoteRepository: FontListRemoteRepositorySpec {
@@ -19,12 +19,17 @@ final class FontListRemoteRepository: FontListRemoteRepositorySpec {
         self.service = service
     }
 
-    func fetch(_ completion: @escaping (Result<FontListDTO, Error>) -> Void) {
+    func fetch(_ completion: @escaping (Result<[FontEntity], Error>) -> Void) {
         let request = FontListRequest()
         service.send(request) { result in
             switch result {
-            case .success(let entity):
-                completion(.success(entity))
+            case .success(let fontListDTO):
+                do {
+                    let result = try fontListDTO.fonts.map { try FontEntity(fontDTO: $0) }
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(error))
+                }
             case .failure(let error):
                 completion(.failure(error))
             }
