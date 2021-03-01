@@ -14,6 +14,9 @@ struct MainSceneDIContainer {
         let networkService: NetworkServiceSpec
     }
     
+    // Persistent storage
+    private let fontDataStorage = FileManagerFontDataStorage()
+    
     // Initializer
     init(dependencies: Dependencies) {
         self.dependencies = dependencies
@@ -34,24 +37,35 @@ extension MainSceneDIContainer {
 extension MainSceneDIContainer {
     
     func makeMainViewModel() -> MainViewModel {
-        return MainViewModel(fetchFontUseCase: makeFetchFontsUseCase())
+        return MainViewModel(
+            fetchFontUseCase: makeFetchFontsUseCase(),
+            registerFontUseCase: makeRegisterFontUseCase()
+        )
     }
 }
 
-// MARK: - UseCase
+// MARK: - FetchFontsUseCase
 
 extension MainSceneDIContainer {
     
     func makeFetchFontsUseCase() -> FetchFontsUseCase {
         return FetchFontsUseCase(repository: makeFontListRemoteRepository())
     }
-}
-
-// MARK: - Repository
-
-extension MainSceneDIContainer {
     
     func makeFontListRemoteRepository() -> FontListRemoteRepositorySpec {
         return FontListRemoteRepository(service: dependencies.networkService)
+    }
+}
+
+// MARK: - RegisterFontUseCase
+
+extension MainSceneDIContainer {
+    
+    func makeRegisterFontUseCase() -> RegisterFontUseCase {
+        return RegisterFontUseCase(repository: makeFontDataRepository())
+    }
+    
+    func makeFontDataRepository() -> FontDataRepository {
+        return FontDataRepository(storage: fontDataStorage)
     }
 }

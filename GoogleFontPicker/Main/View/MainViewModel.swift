@@ -26,10 +26,15 @@ final class MainViewModel: MainViewModelInterface {
 
     // Property
     private let fetchFontUseCase: FetchFontsUseCase
+    private let registerFontUseCase: RegisterFontUseCase
 
     // Life cycle
-    init(fetchFontUseCase: FetchFontsUseCase) {
+    init(
+        fetchFontUseCase: FetchFontsUseCase,
+        registerFontUseCase: RegisterFontUseCase
+    ) {
         self.fetchFontUseCase = fetchFontUseCase
+        self.registerFontUseCase = registerFontUseCase
     }
 }
 
