@@ -13,7 +13,7 @@ protocol MainViewModelInput {
 
 protocol MainViewModelOutput {
     var error: Observable<String> { get }
-    var fontList: Observable<[FontEntity]> { get }
+    var fontList: Observable<[FontTableViewCellViewObject]> { get }
 }
 
 typealias MainViewModelInterface =  MainViewModelInput & MainViewModelOutput
@@ -22,7 +22,7 @@ final class MainViewModel: MainViewModelInterface {
     
     // Output
     let error: Observable<String> = Observable("")
-    let fontList: Observable<[FontEntity]> = Observable([])
+    let fontList: Observable<[FontTableViewCellViewObject]> = Observable([])
 
     // Property
     private let fetchFontUseCase: FetchFontsUseCase
@@ -42,7 +42,7 @@ extension MainViewModel {
             guard let self = self else { return }
             switch result {
             case .success(let fontList):
-                self.fontList.value = fontList
+                self.fontList.value = fontList.map { FontTableViewCellViewObject(entity: $0) }
             case .failure(let error):
                 self.handle(error: error)
             }
@@ -59,6 +59,7 @@ extension MainViewModel {
 // MARK: - Helper
 
 private extension MainViewModel {
+    
     private func handle(error: Error) {
         self.error.value = NSLocalizedString("something is wrong: \(error)", comment: "")
     }

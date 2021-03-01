@@ -15,10 +15,20 @@ final class FontTableViewCellViewObject {
         case exist
     }
     
-    let font: UIFont = .systemFont(ofSize: 100)
-    let familyName: String = "123"
-    let status: Status = .downloading
+    let font: UIFont
+    let familyName: String
+    let status: Status
     var isSelected: Bool = false
     
-    // TODO: entity -> view object
+    init(entity: FontEntity) {
+        self.familyName = entity.family
+        let font = UIFont(name: entity.info.fontName, size: 18) // size is not important
+        if let font = font {
+            self.font = font
+            self.status = .exist
+        } else {
+            self.font = .systemFont(ofSize: 18)
+            self.status = .notExist
+        }
+    }
 }

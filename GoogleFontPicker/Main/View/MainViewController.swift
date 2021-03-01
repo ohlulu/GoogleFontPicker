@@ -57,13 +57,7 @@ extension MainViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FontTableViewCell.self), for: indexPath) as? FontTableViewCell else {
             return UITableViewCell()
         }
-        let entity = viewModel.fontList.value[indexPath.row]
-        let cellViewModel = FontCollectionViewCellViewModel(
-            font: .systemFont(ofSize: 10),
-            familyName: entity.family,
-            status: .downloading,
-            isSelected: Bool.random()
-        )
+        let cellViewModel = viewModel.fontList.value[indexPath.row]
         cell.config(with: cellViewModel)
         return cell
     }
