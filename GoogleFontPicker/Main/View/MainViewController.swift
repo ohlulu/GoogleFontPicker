@@ -10,12 +10,13 @@ import UIKit
 final class MainViewController: UIViewController {
 
     // UI element
+    private lazy var fontListTableView: UITableView = makeFontListTableView()
 
     // Private property
-    private let viewModel: MainViewModel
+    private let viewModel: MainViewModelInterface
     
     // Life cycle
-    init(viewModel: MainViewModel) {
+    init(viewModel: MainViewModelInterface) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -23,6 +24,8 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutUI()
+        observe(viewModel: viewModel)
+        viewModel.viewDidLoad()
     }
 
     @available(*, unavailable)
@@ -31,17 +34,47 @@ final class MainViewController: UIViewController {
     }
 }
 
-// MARK: - ViewModel delegate
+// MARK: - Observe ViewModel
 
-extension MainViewController {}
+extension MainViewController {
+    
+    func observe(viewModel: MainViewModelInterface) {
+        viewModel.fontList.observe(on: self) { target, fontList in
+            target.fontListTableView.reloadData()
+        }
+    }
+}
 
-// MARK: - Target action
+// MARK: - UITableViewDataSource
 
-private extension MainViewController {}
+extension MainViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.fontList.value.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FontTableViewCell.self), for: indexPath) as? FontTableViewCell else {
+            return UITableViewCell()
+        }
+        let entity = viewModel.fontList.value[indexPath.row]
+        let cellViewModel = FontCollectionViewCellViewModel(
+            font: .systemFont(ofSize: 10),
+            familyName: entity.family,
+            status: .downloading,
+            isSelected: Bool.random()
+        )
+        cell.config(with: cellViewModel)
+        return cell
+    }
+}
 
-// MARK: - Helper
+// MARK: - UITableViewDelegate
 
-private extension MainViewController {}
+extension MainViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
+}
 
 // MARK: - UI methods
 
@@ -49,5 +82,25 @@ private extension MainViewController {
 
     func layoutUI() {
         view.backgroundColor = .white
+        
+        view.addSubview(fontListTableView)
+        NSLayoutConstraint.activate([
+            fontListTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            fontListTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            fontListTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            fontListTableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
+        ])
+    }
+    
+    func makeFontListTableView() -> UITableView {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.rowHeight = 50
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .white
+        tableView.register(FontTableViewCell.self, forCellReuseIdentifier: String(describing: FontTableViewCell.self))
+        tableView.delegate = self
+        tableView.dataSource = self
+        return tableView
     }
 }
