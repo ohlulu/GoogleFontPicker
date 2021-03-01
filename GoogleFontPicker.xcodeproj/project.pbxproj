@@ -33,6 +33,7 @@
 		509DDFC925ECBE4A00B4B1A1 /* FontListDTO_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DDFC825ECBE4A00B4B1A1 /* FontListDTO_Tests.swift */; };
 		509DDFCF25ECBEE800B4B1A1 /* FontListDTO.json in Resources */ = {isa = PBXBuildFile; fileRef = 509DDFCE25ECBEE800B4B1A1 /* FontListDTO.json */; };
 		509DDFD725ECBF3400B4B1A1 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DDFD625ECBF3400B4B1A1 /* XCTestCase+Extensions.swift */; };
+		50DD2CA225ED2A01006D4768 /* FontTableViewCellViewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DD2CA125ED2A01006D4768 /* FontTableViewCellViewObject.swift */; };
 		50DE4F4725ECDB0C006A19AC /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4F4625ECDB0C006A19AC /* MainViewModel.swift */; };
 		50DE4F4C25ECDC26006A19AC /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4F4B25ECDC26006A19AC /* Observable.swift */; };
 		50DE4F5425ECED15006A19AC /* FontTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4F5325ECED15006A19AC /* FontTableViewCell.swift */; };
@@ -96,6 +97,7 @@
 		509DDFC825ECBE4A00B4B1A1 /* FontListDTO_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListDTO_Tests.swift; sourceTree = "<group>"; };
 		509DDFCE25ECBEE800B4B1A1 /* FontListDTO.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FontListDTO.json; sourceTree = "<group>"; };
 		509DDFD625ECBF3400B4B1A1 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
+		50DD2CA125ED2A01006D4768 /* FontTableViewCellViewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTableViewCellViewObject.swift; sourceTree = "<group>"; };
 		50DE4F4625ECDB0C006A19AC /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		50DE4F4B25ECDC26006A19AC /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		50DE4F5325ECED15006A19AC /* FontTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTableViewCell.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				50DE4F5325ECED15006A19AC /* FontTableViewCell.swift */,
+				50DD2CA125ED2A01006D4768 /* FontTableViewCellViewObject.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				50943B9425EA5DBC00FA68A4 /* AppDelegate.swift in Sources */,
 				509BFB2825ECD4600045C946 /* FontListRequest.swift in Sources */,
 				509BFB1325ECCB340045C946 /* URLEncoder.swift in Sources */,
+				50DD2CA225ED2A01006D4768 /* FontTableViewCellViewObject.swift in Sources */,
 				509BFB0725ECCB340045C946 /* NetworkResponse.swift in Sources */,
 				509BFB1225ECCB340045C946 /* NetworkLogger.swift in Sources */,
 				509BFB1625ECCB340045C946 /* NetworkRequest.swift in Sources */,

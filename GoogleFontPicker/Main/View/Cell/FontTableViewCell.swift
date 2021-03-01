@@ -28,22 +28,9 @@ final class FontTableViewCell: UITableViewCell {
     }
 }
 
-// TEMP:
-struct FontCollectionViewCellViewModel {
-    enum Status {
-        case notExist
-        case downloading
-        case exist
-    }
-    let font: UIFont
-    let familyName: String
-    let status: Status
-    var isSelected: Bool
-}
-
 extension FontTableViewCell {
     
-    func config(with viewModel: FontCollectionViewCellViewModel) {
+    func config(with viewModel: FontTableViewCellViewObject) {
         familyNameLabel.text = viewModel.familyName
         familyNameLabel.font = viewModel.font.withSize(18)
         
