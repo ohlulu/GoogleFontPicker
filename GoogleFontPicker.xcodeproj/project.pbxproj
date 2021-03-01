@@ -35,6 +35,7 @@
 		509DDFD725ECBF3400B4B1A1 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DDFD625ECBF3400B4B1A1 /* XCTestCase+Extensions.swift */; };
 		50DE4F4725ECDB0C006A19AC /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4F4625ECDB0C006A19AC /* MainViewModel.swift */; };
 		50DE4F4C25ECDC26006A19AC /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4F4B25ECDC26006A19AC /* Observable.swift */; };
+		50DE4F5925ECF511006A19AC /* MainSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4F5825ECF511006A19AC /* MainSceneDIContainer.swift */; };
 		95576037E813CB3B24E67230 /* Pods_GoogleFontPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B81B2A95BD2E702DBEAF526D /* Pods_GoogleFontPicker.framework */; };
 		BC696397F84000015C85E845 /* Pods_GoogleFontPicker_GoogleFontPickerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB5462630CE753CC1125269 /* Pods_GoogleFontPicker_GoogleFontPickerUITests.framework */; };
 		C21673AC14FFC15030BAAD81 /* Pods_GoogleFontPickerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E8F794478AEED2500CF23F /* Pods_GoogleFontPickerTests.framework */; };
@@ -96,6 +97,7 @@
 		509DDFD625ECBF3400B4B1A1 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
 		50DE4F4625ECDB0C006A19AC /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		50DE4F4B25ECDC26006A19AC /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		50DE4F5825ECF511006A19AC /* MainSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSceneDIContainer.swift; sourceTree = "<group>"; };
 		5345EB520536BE34D79EAF6C /* Pods-GoogleFontPicker-GoogleFontPickerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleFontPicker-GoogleFontPickerUITests.debug.xcconfig"; path = "Target Support Files/Pods-GoogleFontPicker-GoogleFontPickerUITests/Pods-GoogleFontPicker-GoogleFontPickerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		59E2A2693679D46C8CFC3337 /* Pods-GoogleFontPicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleFontPicker.debug.xcconfig"; path = "Target Support Files/Pods-GoogleFontPicker/Pods-GoogleFontPicker.debug.xcconfig"; sourceTree = "<group>"; };
 		5BB5462630CE753CC1125269 /* Pods_GoogleFontPicker_GoogleFontPickerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleFontPicker_GoogleFontPickerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +171,7 @@
 			children = (
 				50943B9325EA5DBC00FA68A4 /* AppDelegate.swift */,
 				50943B9525EA5DBC00FA68A4 /* SceneDelegate.swift */,
+				50DE4F5825ECF511006A19AC /* MainSceneDIContainer.swift */,
 				50943B9C25EA5DBE00FA68A4 /* Assets.xcassets */,
 				50943B9E25EA5DBE00FA68A4 /* LaunchScreen.storyboard */,
 				50943BA125EA5DBE00FA68A4 /* Info.plist */,
@@ -512,6 +515,7 @@
 				509BFB1425ECCB340045C946 /* NetworkCancelable.swift in Sources */,
 				509BFB1025ECCB340045C946 /* NetworkDecision.swift in Sources */,
 				509BFB0F25ECCB340045C946 /* NetworkAdapter.swift in Sources */,
+				50DE4F5925ECF511006A19AC /* MainSceneDIContainer.swift in Sources */,
 				50DE4F4725ECDB0C006A19AC /* MainViewModel.swift in Sources */,
 				509BFB1525ECCB340045C946 /* NetworkError.swift in Sources */,
 				50943B9625EA5DBC00FA68A4 /* SceneDelegate.swift in Sources */,
