@@ -29,6 +29,7 @@
 		509BFB1425ECCB340045C946 /* NetworkCancelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFB0425ECCB340045C946 /* NetworkCancelable.swift */; };
 		509BFB1525ECCB340045C946 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFB0525ECCB340045C946 /* NetworkError.swift */; };
 		509BFB1625ECCB340045C946 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFB0625ECCB340045C946 /* NetworkRequest.swift */; };
+		509BFB2825ECD4600045C946 /* FontListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFB2725ECD4600045C946 /* FontListRequest.swift */; };
 		509DDFC925ECBE4A00B4B1A1 /* FontListEntity_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DDFC825ECBE4A00B4B1A1 /* FontListEntity_Tests.swift */; };
 		509DDFCF25ECBEE800B4B1A1 /* FontListEntity.json in Resources */ = {isa = PBXBuildFile; fileRef = 509DDFCE25ECBEE800B4B1A1 /* FontListEntity.json */; };
 		509DDFD725ECBF3400B4B1A1 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DDFD625ECBF3400B4B1A1 /* XCTestCase+Extensions.swift */; };
@@ -86,6 +87,7 @@
 		509BFB0425ECCB340045C946 /* NetworkCancelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkCancelable.swift; sourceTree = "<group>"; };
 		509BFB0525ECCB340045C946 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		509BFB0625ECCB340045C946 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		509BFB2725ECD4600045C946 /* FontListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListRequest.swift; sourceTree = "<group>"; };
 		509DDFC725ECBE4A00B4B1A1 /* GoogleFontPickerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoogleFontPickerTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		509DDFC825ECBE4A00B4B1A1 /* FontListEntity_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListEntity_Tests.swift; sourceTree = "<group>"; };
 		509DDFCE25ECBEE800B4B1A1 /* FontListEntity.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FontListEntity.json; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				509BFAC625ECC7000045C946 /* FontListRemoteRepository.swift */,
+				509BFB2725ECD4600045C946 /* FontListRequest.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				50943BD725EA677500FA68A4 /* MainViewController.swift in Sources */,
 				509BFB0E25ECCB340045C946 /* HTTPMethod.swift in Sources */,
 				50943B9425EA5DBC00FA68A4 /* AppDelegate.swift in Sources */,
+				509BFB2825ECD4600045C946 /* FontListRequest.swift in Sources */,
 				509BFB1325ECCB340045C946 /* URLEncoder.swift in Sources */,
 				509BFB0725ECCB340045C946 /* NetworkResponse.swift in Sources */,
 				509BFB1225ECCB340045C946 /* NetworkLogger.swift in Sources */,
