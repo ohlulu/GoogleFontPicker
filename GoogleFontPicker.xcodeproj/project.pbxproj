@@ -16,6 +16,19 @@
 		50943BE425EA73FE00FA68A4 /* FontEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50943BE325EA73FE00FA68A4 /* FontEntity.swift */; };
 		509BFAC125ECC6780045C946 /* FetchFontsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFAC025ECC6780045C946 /* FetchFontsUseCase.swift */; };
 		509BFAC725ECC7000045C946 /* FontListRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFAC625ECC7000045C946 /* FontListRemoteRepository.swift */; };
+		509BFB0725ECCB340045C946 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFAF625ECCB340045C946 /* NetworkResponse.swift */; };
+		509BFB0925ECCB340045C946 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFAF825ECCB340045C946 /* NetworkSession.swift */; };
+		509BFB0A25ECCB340045C946 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFAF925ECCB340045C946 /* NetworkService.swift */; };
+		509BFB0C25ECCB340045C946 /* NetworkPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFAFC25ECCB340045C946 /* NetworkPlugin.swift */; };
+		509BFB0D25ECCB340045C946 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFAFD25ECCB340045C946 /* NetworkTask.swift */; };
+		509BFB0E25ECCB340045C946 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFAFE25ECCB340045C946 /* HTTPMethod.swift */; };
+		509BFB0F25ECCB340045C946 /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFAFF25ECCB340045C946 /* NetworkAdapter.swift */; };
+		509BFB1025ECCB340045C946 /* NetworkDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFB0025ECCB340045C946 /* NetworkDecision.swift */; };
+		509BFB1225ECCB340045C946 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFB0225ECCB340045C946 /* NetworkLogger.swift */; };
+		509BFB1325ECCB340045C946 /* URLEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFB0325ECCB340045C946 /* URLEncoder.swift */; };
+		509BFB1425ECCB340045C946 /* NetworkCancelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFB0425ECCB340045C946 /* NetworkCancelable.swift */; };
+		509BFB1525ECCB340045C946 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFB0525ECCB340045C946 /* NetworkError.swift */; };
+		509BFB1625ECCB340045C946 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFB0625ECCB340045C946 /* NetworkRequest.swift */; };
 		509DDFC925ECBE4A00B4B1A1 /* FontListEntity_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DDFC825ECBE4A00B4B1A1 /* FontListEntity_Tests.swift */; };
 		509DDFCF25ECBEE800B4B1A1 /* FontListEntity.json in Resources */ = {isa = PBXBuildFile; fileRef = 509DDFCE25ECBEE800B4B1A1 /* FontListEntity.json */; };
 		509DDFD725ECBF3400B4B1A1 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DDFD625ECBF3400B4B1A1 /* XCTestCase+Extensions.swift */; };
@@ -60,6 +73,19 @@
 		50943BE325EA73FE00FA68A4 /* FontEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontEntity.swift; sourceTree = "<group>"; };
 		509BFAC025ECC6780045C946 /* FetchFontsUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchFontsUseCase.swift; sourceTree = "<group>"; };
 		509BFAC625ECC7000045C946 /* FontListRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListRemoteRepository.swift; sourceTree = "<group>"; };
+		509BFAF625ECCB340045C946 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		509BFAF825ECCB340045C946 /* NetworkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		509BFAF925ECCB340045C946 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		509BFAFC25ECCB340045C946 /* NetworkPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlugin.swift; sourceTree = "<group>"; };
+		509BFAFD25ECCB340045C946 /* NetworkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
+		509BFAFE25ECCB340045C946 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		509BFAFF25ECCB340045C946 /* NetworkAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
+		509BFB0025ECCB340045C946 /* NetworkDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDecision.swift; sourceTree = "<group>"; };
+		509BFB0225ECCB340045C946 /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		509BFB0325ECCB340045C946 /* URLEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncoder.swift; sourceTree = "<group>"; };
+		509BFB0425ECCB340045C946 /* NetworkCancelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkCancelable.swift; sourceTree = "<group>"; };
+		509BFB0525ECCB340045C946 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		509BFB0625ECCB340045C946 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		509DDFC725ECBE4A00B4B1A1 /* GoogleFontPickerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoogleFontPickerTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		509DDFC825ECBE4A00B4B1A1 /* FontListEntity_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListEntity_Tests.swift; sourceTree = "<group>"; };
 		509DDFCE25ECBEE800B4B1A1 /* FontListEntity.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FontListEntity.json; sourceTree = "<group>"; };
@@ -141,6 +167,7 @@
 				50943B9E25EA5DBE00FA68A4 /* LaunchScreen.storyboard */,
 				50943BA125EA5DBE00FA68A4 /* Info.plist */,
 				50943BD525EA671D00FA68A4 /* Main */,
+				509BFACB25ECC9240045C946 /* Infrastructure */,
 			);
 			path = GoogleFontPicker;
 			sourceTree = "<group>";
@@ -198,6 +225,42 @@
 				509BFAC625ECC7000045C946 /* FontListRemoteRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		509BFACB25ECC9240045C946 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				509BFAF525ECCB340045C946 /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		509BFAF525ECCB340045C946 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				509BFAF625ECCB340045C946 /* NetworkResponse.swift */,
+				509BFAF825ECCB340045C946 /* NetworkSession.swift */,
+				509BFAF925ECCB340045C946 /* NetworkService.swift */,
+				509BFB0625ECCB340045C946 /* NetworkRequest.swift */,
+				509BFAFA25ECCB340045C946 /* Components */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		509BFAFA25ECCB340045C946 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				509BFAFC25ECCB340045C946 /* NetworkPlugin.swift */,
+				509BFAFD25ECCB340045C946 /* NetworkTask.swift */,
+				509BFAFE25ECCB340045C946 /* HTTPMethod.swift */,
+				509BFAFF25ECCB340045C946 /* NetworkAdapter.swift */,
+				509BFB0025ECCB340045C946 /* NetworkDecision.swift */,
+				509BFB0225ECCB340045C946 /* NetworkLogger.swift */,
+				509BFB0325ECCB340045C946 /* URLEncoder.swift */,
+				509BFB0425ECCB340045C946 /* NetworkCancelable.swift */,
+				509BFB0525ECCB340045C946 /* NetworkError.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		509DDFCD25ECBEAC00B4B1A1 /* Main */ = {
@@ -425,12 +488,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				509BFB0A25ECCB340045C946 /* NetworkService.swift in Sources */,
 				50943BD725EA677500FA68A4 /* MainViewController.swift in Sources */,
+				509BFB0E25ECCB340045C946 /* HTTPMethod.swift in Sources */,
 				50943B9425EA5DBC00FA68A4 /* AppDelegate.swift in Sources */,
+				509BFB1325ECCB340045C946 /* URLEncoder.swift in Sources */,
+				509BFB0725ECCB340045C946 /* NetworkResponse.swift in Sources */,
+				509BFB1225ECCB340045C946 /* NetworkLogger.swift in Sources */,
+				509BFB1625ECCB340045C946 /* NetworkRequest.swift in Sources */,
+				509BFB0925ECCB340045C946 /* NetworkSession.swift in Sources */,
 				509BFAC725ECC7000045C946 /* FontListRemoteRepository.swift in Sources */,
+				509BFB1425ECCB340045C946 /* NetworkCancelable.swift in Sources */,
+				509BFB1025ECCB340045C946 /* NetworkDecision.swift in Sources */,
+				509BFB0F25ECCB340045C946 /* NetworkAdapter.swift in Sources */,
+				509BFB1525ECCB340045C946 /* NetworkError.swift in Sources */,
 				50943B9625EA5DBC00FA68A4 /* SceneDelegate.swift in Sources */,
+				509BFB0D25ECCB340045C946 /* NetworkTask.swift in Sources */,
 				50943BE425EA73FE00FA68A4 /* FontEntity.swift in Sources */,
 				509BFAC125ECC6780045C946 /* FetchFontsUseCase.swift in Sources */,
+				509BFB0C25ECCB340045C946 /* NetworkPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
