@@ -11,8 +11,12 @@ final class MainViewController: UIViewController {
 
     // UI element
 
+    // Private property
+    private let viewModel: MainViewModel
+    
     // Life cycle
-    init() {
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
