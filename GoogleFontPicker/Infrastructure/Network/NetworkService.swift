@@ -160,7 +160,13 @@ extension NetworkService {
 
     func build<T: NetworkRequest>(request httpRequest: T) throws -> URLRequest {
 
-        let fullURL = httpRequest.baseURL.appendingPathComponent(httpRequest.path)
+        let fullURL: URL
+        if httpRequest.path.isEmpty {
+            fullURL = httpRequest.baseURL
+        } else {
+            fullURL = httpRequest.baseURL.appendingPathComponent(httpRequest.path)
+        }
+            
         var request = URLRequest(url: fullURL)
 
         request = try httpRequest.adapters.reduce(request) { request, adapter in
