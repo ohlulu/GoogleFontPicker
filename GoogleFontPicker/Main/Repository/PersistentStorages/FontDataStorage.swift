@@ -59,6 +59,9 @@ extension FileManagerFontDataStorage: FontDataStorage {
             guard let self = self,
                   let directoryURL = self.directoryURL else { return }
             do {
+                if !self.fileManager.fileExists(atPath: directoryURL.path) {
+                    try self.fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true, attributes: nil)
+                }
                 try fontData.write(to: directoryURL.appendingPathComponent(fontName), options: .atomicWrite)
                 completion(.success(()))
             } catch {
