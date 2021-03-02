@@ -47,7 +47,10 @@ extension MainViewModel {
             guard let self = self else { return }
             switch result {
             case .success(let fontList):
-                self.fontList.value = fontList.map { FontTableViewCellViewObject(entity: $0) }
+                self.registerFont { [weak self] in
+                    guard let self = self else { return }
+                    self.fontList.value = fontList.map { FontTableViewCellViewObject(entity: $0) }
+                }
             case .failure(let error):
                 self.handle(error: error)
             }
@@ -64,6 +67,18 @@ extension MainViewModel {
 // MARK: - Helper
 
 private extension MainViewModel {
+    
+    func registerFont(completion: @escaping () -> Void) {
+        registerFontUseCase.register { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success: break
+            case .failure(let error):
+                self.handle(error: error)
+            }
+            completion()
+        }
+    }
     
     private func handle(error: Error) {
         self.error.value = NSLocalizedString("something is wrong: \(error)", comment: "")
