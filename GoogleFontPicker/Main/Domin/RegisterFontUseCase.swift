@@ -17,7 +17,7 @@ class RegisterFontUseCase {
         self.repository = repository
     }
     
-    func register(completion: @escaping ((Result<Void, Error>) -> Void)) {
+    func registerAll(completion: @escaping ((Result<Void, Error>) -> Void)) {
         
         repository.listAllFontData { result in
             switch result {

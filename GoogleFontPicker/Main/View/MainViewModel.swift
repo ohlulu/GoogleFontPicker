@@ -7,14 +7,17 @@
 
 import Foundation
 
+/// Input
 protocol MainViewModelInput {
     func viewDidLoad()
     func didSelectedRow(at index: Int)
 }
 
+/// Output
 protocol MainViewModelOutput {
     var error: Observable<String> { get }
     var fontList: Observable<[FontTableViewCellViewObject]> { get }
+    var updateIndex: Observable<Int> { get }
 }
 
 typealias MainViewModelInterface =  MainViewModelInput & MainViewModelOutput
@@ -24,6 +27,7 @@ final class MainViewModel: MainViewModelInterface {
     // Output
     let error: Observable<String> = Observable("")
     let fontList: Observable<[FontTableViewCellViewObject]> = Observable([])
+    let updateIndex: Observable<Int> = Observable(0)
 
     // Property
     private let fetchFontUseCase: FetchFontsUseCase
@@ -51,7 +55,7 @@ extension MainViewModel {
             guard let self = self else { return }
             switch result {
             case .success(let fontList):
-                self.registerFont { [weak self] in
+                self.registerAllFont { [weak self] in
                     guard let self = self else { return }
                     self.fontList.value = fontList.map { FontTableViewCellViewObject(entity: $0) }
                 }
@@ -92,8 +96,8 @@ extension MainViewModel {
 
 private extension MainViewModel {
     
-    func registerFont(completion: @escaping () -> Void) {
-        registerFontUseCase.register { [weak self] result in
+    func registerAllFont(completion: @escaping () -> Void) {
+        registerFontUseCase.registerAll { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success: break
