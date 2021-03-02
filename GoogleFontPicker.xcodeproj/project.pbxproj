@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		505ACB1225EE5B0F0047A100 /* DownloadFontUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505ACB1125EE5B0F0047A100 /* DownloadFontUseCase.swift */; };
+		505ACB1725EE5EAF0047A100 /* FontRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505ACB1625EE5EAF0047A100 /* FontRepository.swift */; };
 		50943B9425EA5DBC00FA68A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50943B9325EA5DBC00FA68A4 /* AppDelegate.swift */; };
 		50943B9625EA5DBC00FA68A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50943B9525EA5DBC00FA68A4 /* SceneDelegate.swift */; };
 		50943B9D25EA5DBE00FA68A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50943B9C25EA5DBE00FA68A4 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		0E9E933BCDA6A5686A6F3549 /* Pods-GoogleFontPickerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleFontPickerTests.debug.xcconfig"; path = "Target Support Files/Pods-GoogleFontPickerTests/Pods-GoogleFontPickerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4284E0DCC610424BC090DD64 /* Pods-GoogleFontPickerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleFontPickerTests.release.xcconfig"; path = "Target Support Files/Pods-GoogleFontPickerTests/Pods-GoogleFontPickerTests.release.xcconfig"; sourceTree = "<group>"; };
 		505ACB1125EE5B0F0047A100 /* DownloadFontUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadFontUseCase.swift; sourceTree = "<group>"; };
+		505ACB1625EE5EAF0047A100 /* FontRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontRepository.swift; sourceTree = "<group>"; };
 		50943B9025EA5DBC00FA68A4 /* GoogleFontPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleFontPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50943B9325EA5DBC00FA68A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50943B9525EA5DBC00FA68A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				509BFAC625ECC7000045C946 /* FontListRemoteRepository.swift */,
 				509BFB2725ECD4600045C946 /* FontListRequest.swift */,
 				50DD2CBF25ED40F6006D4768 /* FontDataRepository.swift */,
+				505ACB1625EE5EAF0047A100 /* FontRepository.swift */,
 				50DD2CC825ED4B15006D4768 /* PersistentStorages */,
 			);
 			path = Repository;
@@ -534,6 +537,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				505ACB1725EE5EAF0047A100 /* FontRepository.swift in Sources */,
 				50DE4F4C25ECDC26006A19AC /* Observable.swift in Sources */,
 				509BFB0A25ECCB340045C946 /* NetworkService.swift in Sources */,
 				50DE4F5425ECED15006A19AC /* FontTableViewCell.swift in Sources */,

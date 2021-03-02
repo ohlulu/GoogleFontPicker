@@ -7,15 +7,11 @@
 
 import Foundation
 
-protocol FontRepository {
-    func download(url: URL, completion: @escaping (Data) -> Void)
-}
-
 final class DownloadFontUseCase {
     
-    let repository: FontRepository
+    let repository: FontRepositorySpec
     
-    init(repository: FontRepository) {
+    init(repository: FontRepositorySpec) {
         self.repository = repository
     }
 }
