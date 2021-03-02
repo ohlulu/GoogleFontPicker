@@ -34,6 +34,22 @@ class RegisterFontUseCase {
             }
         }
     }
+    
+    func registerFont(fontName: String, completion: @escaping ((Result<Void, Error>) -> Void)) {
+        repository.readFontData(fontName: fontName) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    try self.registerFont(withFontData: data)
+                    completion(.success(()))
+                } catch {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }
 
 // MARK: - Helper
@@ -46,6 +62,7 @@ private extension RegisterFontUseCase {
 
         var error: Unmanaged<CFError>?
         if !CTFontManagerRegisterGraphicsFont(cgFont, &error) {
+            // 這邊怪怪的，要再研究一下
             guard let error = error?.takeRetainedValue() else {
                 return
             }
