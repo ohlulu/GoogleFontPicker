@@ -20,12 +20,15 @@ final class FontTableViewCellViewObject {
     let status: Status
     var isSelected: Bool = false
     
+    let fontName: String
     let fileURL: URL
     
     init(entity: FontEntity) {
         self.familyName = entity.family
-        let font = UIFont(name: entity.info.fontName, size: 18) // size is not important
-        if let font = font {
+        self.fontName = entity.info.fontName
+        
+        // size is not important
+        if let font = UIFont(name: fontName, size: 18) {
             self.font = font
             self.status = .exist
         } else {
