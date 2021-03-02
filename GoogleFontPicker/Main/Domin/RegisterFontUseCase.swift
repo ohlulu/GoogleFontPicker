@@ -11,15 +11,15 @@ import Foundation
 
 class RegisterFontUseCase {
     
-    let repository: FontDataRepository
+    let repository: FontRepositorySpec
     
-    init(repository: FontDataRepository) {
+    init(repository: FontRepositorySpec) {
         self.repository = repository
     }
     
     func register(completion: @escaping ((Result<Void, Error>) -> Void)) {
         
-        repository.list { result in
+        repository.listAllFontData { result in
             switch result {
             case .success(let fontDatas):
                 do {

@@ -15,7 +15,7 @@ struct MainSceneDIContainer {
     }
     
     // Persistent storage
-    private let fontDataStorage = FileManagerFontDataStorage()
+    private let fontStorage = FileManagerFontDataStorage()
     
     // Initializer
     init(dependencies: Dependencies) {
@@ -66,8 +66,11 @@ extension MainSceneDIContainer {
         return RegisterFontUseCase(repository: makeFontDataRepository())
     }
     
-    func makeFontDataRepository() -> FontDataRepository {
-        return FontDataRepository(storage: fontDataStorage)
+    func makeFontDataRepository() -> FontRepositorySpec {
+        return FontRepository(
+            service: service,
+            storage: fontStorage
+        )
     }
 }
 
@@ -76,11 +79,14 @@ extension MainSceneDIContainer {
     func makeDownloadUseCase() -> DownloadFontUseCase {
         return DownloadFontUseCase(
             repository: makeFontRepository(),
-            storage: fontDataStorage
+            storage: fontStorage
         )
     }
     
     func makeFontRepository() -> FontRepositorySpec {
-        return FontRepository(service: service)
+        return FontRepository(
+            service: service,
+            storage: fontStorage
+        )
     }
 }

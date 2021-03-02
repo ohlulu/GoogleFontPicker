@@ -1,5 +1,5 @@
 //
-//  FontDataStorage.swift
+//  FontStorage.swift
 //  GoogleFontPicker
 //
 //  Created by Ohlulu on 2021/3/2.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-protocol FontDataStorage {
+protocol FontStorage {
     typealias FontData = Data
-    func list(completion: @escaping ((Result<[FontData], Error>) -> Void))
+    func listAllFontData(completion: @escaping ((Result<[FontData], Error>) -> Void))
     func save(
         fontName: String,
         withFontData fontData: FontData,
@@ -31,9 +31,9 @@ final class FileManagerFontDataStorage {
     }
 }
 
-extension FileManagerFontDataStorage: FontDataStorage {
+extension FileManagerFontDataStorage: FontStorage {
     
-    func list(completion: @escaping ((Result<[FontData], Error>) -> Void)) {
+    func listAllFontData(completion: @escaping ((Result<[FontData], Error>) -> Void)) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self,
                   let directoryURL = self.directoryURL else { return }

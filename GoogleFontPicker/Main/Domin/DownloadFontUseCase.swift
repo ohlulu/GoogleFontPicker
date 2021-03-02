@@ -10,11 +10,11 @@ import Foundation
 final class DownloadFontUseCase {
     
     let repository: FontRepositorySpec
-    let storage: FontDataStorage
+    let storage: FontStorage
     
     init(
         repository: FontRepositorySpec,
-        storage: FontDataStorage
+        storage: FontStorage
     ) {
         self.repository = repository
         self.storage = storage
