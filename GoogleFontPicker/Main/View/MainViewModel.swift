@@ -70,16 +70,23 @@ extension MainViewModel {
         let viewObject = fontList.value[index]
         switch viewObject.status {
         case .notExist:
-            downloadUseCase.downloadFont(name: viewObject.fontName, url: viewObject.fileURL) { result in
-                    switch result {
-                    case .success:
-                        self.registerFont {
-                            // TODO: update VO
+            downloadUseCase.downloadFont(name: viewObject.fontName, url: viewObject.fileURL) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success:
+                    self.registerFontUseCase.registerFont(fontName: viewObject.fontName) { result in
+                        switch result {
+                        case .success:
+                            // TODO: Update VO
+                            break
+                        case .failure(let error):
+                            self.handle(error: error)
                         }
-                    case .failure(let error):
-                        self.handle(error: error)
                     }
+                case .failure(let error):
+                    self.handle(error: error)
                 }
+            }
         case .downloading, .exist:
             break
         }
