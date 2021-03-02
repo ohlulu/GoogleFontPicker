@@ -28,14 +28,17 @@ final class MainViewModel: MainViewModelInterface {
     // Property
     private let fetchFontUseCase: FetchFontsUseCase
     private let registerFontUseCase: RegisterFontUseCase
-
+    private let downloadUseCase: DownloadFontUseCase
+    
     // Life cycle
     init(
         fetchFontUseCase: FetchFontsUseCase,
-        registerFontUseCase: RegisterFontUseCase
+        registerFontUseCase: RegisterFontUseCase,
+        downloadUseCase: DownloadFontUseCase
     ) {
         self.fetchFontUseCase = fetchFontUseCase
         self.registerFontUseCase = registerFontUseCase
+        self.downloadUseCase = downloadUseCase
     }
 }
 
@@ -63,7 +66,16 @@ extension MainViewModel {
         let viewObject = fontList.value[index]
         switch viewObject.status {
         case .notExist:
-            downloadFont()
+            downloadUseCase.downloadFont(name: viewObject.fontName, url: viewObject.fileURL) { result in
+                    switch result {
+                    case .success:
+                        self.registerFont {
+                            // TODO: update VO
+                        }
+                    case .failure(let error):
+                        self.handle(error: error)
+                    }
+                }
         case .downloading, .exist:
             break
         }
@@ -90,10 +102,6 @@ private extension MainViewModel {
             }
             completion()
         }
-    }
-    
-    func downloadFont() {
-        
     }
     
     private func handle(error: Error) {

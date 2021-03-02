@@ -39,7 +39,8 @@ extension MainSceneDIContainer {
     func makeMainViewModel() -> MainViewModel {
         return MainViewModel(
             fetchFontUseCase: makeFetchFontsUseCase(),
-            registerFontUseCase: makeRegisterFontUseCase()
+            registerFontUseCase: makeRegisterFontUseCase(),
+            downloadUseCase: makeDownloadUseCase()
         )
     }
 }
@@ -67,5 +68,19 @@ extension MainSceneDIContainer {
     
     func makeFontDataRepository() -> FontDataRepository {
         return FontDataRepository(storage: fontDataStorage)
+    }
+}
+
+extension MainSceneDIContainer {
+    
+    func makeDownloadUseCase() -> DownloadFontUseCase {
+        return DownloadFontUseCase(
+            repository: makeFontRepository(),
+            storage: fontDataStorage
+        )
+    }
+    
+    func makeFontRepository() -> FontRepositorySpec {
+        return FontRepository(service: service)
     }
 }
