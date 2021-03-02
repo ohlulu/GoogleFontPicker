@@ -72,7 +72,7 @@ class LogPlugin: NetworkPlugin {
         cost time -> \(String(format: "%.3f", costTime)) s
         headers -> \(header)
         Request Body -> \(requestBody)
-        Response Body -> \(responseBody)
+        Response Body \(countSize(response.data))-> \(responseBody)
         """
 
         logger.log(message)
@@ -103,5 +103,13 @@ class LogPlugin: NetworkPlugin {
         let formatter = LogPlugin.formatter
         formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         return formatter.string(from: date)
+    }
+    
+    private func countSize(_ data: Data?) -> String {
+        if let data = data {
+            return "(\(data.count) byte)"
+        } else {
+            return "(nil data)"
+        }
     }
 }
