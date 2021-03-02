@@ -10,6 +10,7 @@ import Foundation
 protocol FontStorage {
     typealias FontData = Data
     func listAllFontData(completion: @escaping ((Result<[FontData], Error>) -> Void))
+    func readFontData(fontName: String, completion: @escaping ((Result<FontData, Error>) -> Void))
     func save(
         fontName: String,
         withFontData fontData: FontData,
@@ -44,6 +45,23 @@ extension FileManagerFontDataStorage: FontStorage {
                     return try Data(contentsOf: url)
                 }
                 completion(.success(result))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func readFontData(fontName: String, completion: @escaping ((Result<FontData, Error>) -> Void)) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self,
+                  let directoryURL = self.directoryURL else { return }
+            
+            let tragetFileURL = directoryURL.appendingPathComponent(fontName)
+            do {
+                if self.fileManager.fileExists(atPath: tragetFileURL.path) {
+                    let data = try Data(contentsOf: tragetFileURL)
+                    completion(.success(data))
+                }
             } catch {
                 completion(.failure(error))
             }
