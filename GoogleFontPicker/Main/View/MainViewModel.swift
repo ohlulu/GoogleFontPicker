@@ -9,6 +9,7 @@ import Foundation
 
 protocol MainViewModelInput {
     func viewDidLoad()
+    func didSelectedRow(at index: Int)
 }
 
 protocol MainViewModelOutput {
@@ -56,6 +57,17 @@ extension MainViewModel {
             }
         }
     }
+    
+    func didSelectedRow(at index: Int) {
+        if !(fontList.value.indices ~= index) { return }
+        let viewObject = fontList.value[index]
+        switch viewObject.status {
+        case .notExist:
+            downloadFont()
+        case .downloading, .exist:
+            break
+        }
+    }
 }
 
 // MARK: - Output
@@ -78,6 +90,10 @@ private extension MainViewModel {
             }
             completion()
         }
+    }
+    
+    func downloadFont() {
+        
     }
     
     private func handle(error: Error) {
