@@ -20,6 +20,8 @@ final class FontTableViewCellViewObject {
     let status: Status
     var isSelected: Bool = false
     
+    let fileURL: URL
+    
     init(entity: FontEntity) {
         self.familyName = entity.family
         let font = UIFont(name: entity.info.fontName, size: 18) // size is not important
@@ -30,5 +32,7 @@ final class FontTableViewCellViewObject {
             self.font = .systemFont(ofSize: 18)
             self.status = .notExist
         }
+        
+        self.fileURL = entity.info.fileURL
     }
 }
