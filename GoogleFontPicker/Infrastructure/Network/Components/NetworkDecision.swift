@@ -118,6 +118,23 @@ class DecodeDecision: NetworkDecision {
     }
 }
 
+/// Terminator decision, Get `Data` type if you want.
+class DataTypeTerminatorDecision: NetworkDecision {
+    
+    public func shouldApply<R: NetworkRequest>(request: R, data: Data, response: HTTPURLResponse) -> Bool {
+        true
+    }
+
+    public func apply<R: NetworkRequest>(
+        request: R,
+        data: Data,
+        response: HTTPURLResponse,
+        action: @escaping (NetworkDecisionAction<R>) -> Void
+    ) {
+        action(.done(data as! R.Entity)) 
+    }
+}
+
 private extension Array where Element == NetworkDecision {
 
     func replacing(_ item: NetworkDecision, with newItem: NetworkDecision) -> [NetworkDecision] {
