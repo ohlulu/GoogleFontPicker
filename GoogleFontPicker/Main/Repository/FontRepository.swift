@@ -10,6 +10,7 @@ import Foundation
 protocol FontRepositorySpec {
     typealias FontData = Data
     func listAllFontData(completion: @escaping ((Result<[FontData], Error>) -> Void))
+    func readFontData(fontName: String, completion: @escaping ((Result<FontData, Error>) -> Void))
     func download(url: URL, completion: @escaping (Result<Data, Error>) -> Void)
 }
 
@@ -31,6 +32,10 @@ extension FontRepository: FontRepositorySpec {
     
     func listAllFontData(completion: @escaping ((Result<[FontData], Error>) -> Void)) {
         storage.listAllFontData(completion: completion)
+    }
+    
+    func readFontData(fontName: String, completion: @escaping ((Result<FontData, Error>) -> Void)) {
+        storage.readFontData(fontName: fontName, completion: completion)
     }
     
     func download(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
