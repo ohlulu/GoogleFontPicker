@@ -10,7 +10,9 @@ import UIKit
 final class MainViewController: UIViewController {
 
     // UI element
+    private lazy var demoTextView: UITextView = makeDemoTextView()
     private lazy var fontListTableView: UITableView = makeFontListTableView()
+    private lazy var buttonStackView: UIStackView = makeButtonStackView()
 
     // Private property
     private let viewModel: MainViewModelInterface
@@ -76,6 +78,22 @@ extension MainViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - Target action
+
+private extension MainViewController {
+    
+    @objc func inputButtonDidPress() {
+        demoTextView.isEditable = true
+        demoTextView.becomeFirstResponder()
+        fontListTableView.isHidden = true
+    }
+    
+    @objc func pickFontButtonDidPress() {
+        demoTextView.isEditable = false
+        fontListTableView.isHidden = false
+    }
+}
+
 // MARK: - UITableViewDelegate
 
 extension MainViewController: UITableViewDelegate {
@@ -97,7 +115,22 @@ private extension MainViewController {
             fontListTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             fontListTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             fontListTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            fontListTableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
+            fontListTableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
+        ])
+        
+        view.addSubview(demoTextView)
+        NSLayoutConstraint.activate([
+            demoTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            demoTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            demoTextView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            demoTextView.bottomAnchor.constraint(equalTo: fontListTableView.topAnchor, constant: -50),
+        ])
+        
+        view.addSubview(buttonStackView)
+        NSLayoutConstraint.activate([
+            buttonStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonStackView.topAnchor.constraint(equalTo: demoTextView.bottomAnchor, constant: 16),
+            buttonStackView.bottomAnchor.constraint(equalTo: fontListTableView.topAnchor, constant: -16),
         ])
     }
     
@@ -111,5 +144,40 @@ private extension MainViewController {
         tableView.delegate = self
         tableView.dataSource = self
         return tableView
+    }
+    
+    func makeDemoTextView() -> UITextView {
+        let textView = UITextView()
+        textView.isEditable = false
+        textView.layer.borderColor = UIColor.systemGray3.cgColor
+        textView.layer.borderWidth = 2
+        textView.layer.cornerRadius = 4
+        textView.layer.masksToBounds = true
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
+    }
+    
+    func makeInputButton() -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle("Input", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18)
+        button.addTarget(self, action: #selector(inputButtonDidPress), for: .touchUpInside)
+        return button
+    }
+    
+    func makePickFontButton() -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle("Font", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18)
+        button.addTarget(self, action: #selector(pickFontButtonDidPress), for: .touchUpInside)
+        return button
+    }
+    
+    func makeButtonStackView() -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: [makeInputButton(), makePickFontButton()])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.spacing = 16
+        return stackView
     }
 }
