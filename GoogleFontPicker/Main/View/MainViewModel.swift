@@ -70,17 +70,20 @@ extension MainViewModel {
         let viewObject = fontList.value[index]
         switch viewObject.status {
         case .notExist:
+            update(viewObjectAt: index, toStatus: .downloading)
             downloadUseCase.downloadFont(name: viewObject.fontName, url: viewObject.fileURL) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success:
                     self.registerFontUseCase.registerFont(fontName: viewObject.fontName) { result in
-                        switch result {
-                        case .success:
-                            // TODO: Update VO
-                            break
-                        case .failure(let error):
-                            self.handle(error: error)
+                        DispatchQueue.global().asyncAfter(deadline: .now() + 0.3) { // for test
+                            switch result {
+                            case .success:
+                                self.update(viewObjectAt: index, toStatus: .exist)
+                            case .failure(let error):
+                                self.update(viewObjectAt: index, toStatus: .notExist)
+                                self.handle(error: error)
+                            }
                         }
                     }
                 case .failure(let error):
@@ -113,6 +116,14 @@ private extension MainViewModel {
             }
             completion()
         }
+    }
+    
+    func update(viewObjectAt index: Int, toStatus status: FontTableViewCellViewObject.Status) {
+        let fontEntity = fontList.value[index]
+        fontEntity.status = status
+        fontEntity.reloadFont()
+        
+        updateIndex.value = index
     }
     
     private func handle(error: Error) {

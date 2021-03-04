@@ -42,6 +42,13 @@ extension MainViewController {
         viewModel.fontList.observe(on: self) { target, fontList in
             target.fontListTableView.reloadData()
         }
+        
+        viewModel.updateIndex.observe(on: self) { target, index in
+            let indexPath = IndexPath(row: index, section: 0)
+            if case .some = target.fontListTableView.cellForRow(at: indexPath) {
+                target.fontListTableView.reloadRows(at: [indexPath], with: .none)
+            }
+        }
     }
 }
 

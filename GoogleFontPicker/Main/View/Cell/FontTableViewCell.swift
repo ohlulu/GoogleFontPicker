@@ -45,6 +45,7 @@ extension FontTableViewCell {
             downloadImageView.isHidden = false
         case .downloading:
             loadingIndicator.startAnimating()
+            downloadImageView.isHidden = true
         case .exist:
             downloadImageView.isHidden = true
         }

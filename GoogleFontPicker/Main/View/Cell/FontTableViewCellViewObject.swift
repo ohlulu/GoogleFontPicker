@@ -15,9 +15,9 @@ final class FontTableViewCellViewObject {
         case exist
     }
     
-    let font: UIFont
+    var font: UIFont
     let familyName: String
-    let status: Status
+    var status: Status
     var isSelected: Bool = false
     
     let fontName: String
@@ -27,7 +27,6 @@ final class FontTableViewCellViewObject {
         self.familyName = entity.family
         self.fontName = entity.info.fontName
         
-        // size is not important
         if let font = UIFont(name: fontName, size: 18) {
             self.font = font
             self.status = .exist
@@ -37,5 +36,13 @@ final class FontTableViewCellViewObject {
         }
         
         self.fileURL = entity.info.fileURL
+    }
+    
+    func reloadFont() {
+        if let font = UIFont(name: fontName, size: 18) {
+            self.font = font
+        } else {
+            font = .systemFont(ofSize: 18)
+        }
     }
 }
