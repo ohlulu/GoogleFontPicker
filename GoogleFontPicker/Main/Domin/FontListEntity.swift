@@ -44,6 +44,7 @@ struct FontEntity {
             throw Error.invalidFileURLString
         }
         
-        self.info = Info(fontName: "\(fontDTO.family)-\(variant)", fileURL: url)
+        let noblankFamily = fontDTO.family.replacingOccurrences(of: " ", with: "")
+        self.info = Info(fontName: "\(noblankFamily)-\(variant)", fileURL: url)
     }
 }
