@@ -14,7 +14,6 @@ final class FontTableViewCell: UITableViewCell {
     private lazy var familyNameLabel: UILabel = makeFamilyLabel()
     private lazy var downloadImageView: UIImageView = makeDownloadImageView()
     private lazy var loadingIndicator: UIActivityIndicatorView = makeLoadingActivity()
-    private lazy var selectedIndicator: UIView = makeSelectedIndicator()
     
     // Life cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -89,8 +88,6 @@ extension FontTableViewCell {
             loadingIndicator.centerXAnchor.constraint(equalTo: downloadImageView.centerXAnchor),
             loadingIndicator.centerYAnchor.constraint(equalTo: downloadImageView.centerYAnchor)
         ])
-        
-//        baseView.addSubview(selectedIndicator)
     }
     
     func makeBaseView() -> UIView {
@@ -125,15 +122,5 @@ extension FontTableViewCell {
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
         indicatorView.color = .darkGray
         return indicatorView
-    }
-    
-    func makeSelectedIndicator() -> UIView {
-        let view = UIView()
-        view.backgroundColor = .clear
-        view.layer.cornerRadius = 2
-        view.layer.maskedCorners = CACornerMask(rawValue: UIRectCorner.allCorners.rawValue)
-        view.layer.borderWidth = 2
-        view.layer.borderColor = UIColor.green.cgColor
-        return view
     }
 }

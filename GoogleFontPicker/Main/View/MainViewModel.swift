@@ -34,6 +34,8 @@ final class MainViewModel: MainViewModelInterface {
     private let registerFontUseCase: RegisterFontUseCase
     private let downloadUseCase: DownloadFontUseCase
     
+    private var currentSelectedIndex: Int?
+    
     // Life cycle
     init(
         fetchFontUseCase: FetchFontsUseCase,
@@ -58,6 +60,9 @@ extension MainViewModel {
                 self.registerAllFont { [weak self] in
                     guard let self = self else { return }
                     self.fontList.value = fontList.map { FontTableViewCellViewObject(entity: $0) }
+                    if let index = self.fontList.value.firstIndex(where: { $0.font.fontName != ".SFUI-Regular" }) {
+                        self.update(isSelected: true, at: index)
+                    }
                 }
             case .failure(let error):
                 self.handle(error: error)
@@ -68,6 +73,12 @@ extension MainViewModel {
     func didSelectedRow(at index: Int) {
         if !(fontList.value.indices ~= index) { return }
         let viewObject = fontList.value[index]
+        if let currentSelectedIndex = currentSelectedIndex {
+            self.update(isSelected: false, at: currentSelectedIndex)
+        }
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
+            self.update(isSelected: true, at: index)
+        }
         switch viewObject.status {
         case .notExist:
             update(viewObjectAt: index, toStatus: .downloading)
@@ -122,8 +133,15 @@ private extension MainViewModel {
         let fontEntity = fontList.value[index]
         fontEntity.status = status
         fontEntity.reloadFont()
-        
         updateIndex.value = index
+    }
+    
+    func update(isSelected: Bool, at index: Int) {
+        fontList.value[index].isSelected = isSelected
+        updateIndex.value = index
+        if isSelected {
+            currentSelectedIndex = index
+        }
     }
     
     private func handle(error: Error) {
