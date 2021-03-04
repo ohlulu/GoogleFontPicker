@@ -10,11 +10,6 @@ import Foundation
 struct FontEntity {
     
     enum Error: Swift.Error {
-        /// Missing file url string.
-        case missingFileURL
-        /// Invalid file url.
-        case invalidFileURLString
-        /// Variants is empty.
         case variantsEmpty
     }
     
@@ -30,21 +25,18 @@ struct FontEntity {
     
     init(fontDTO: FontListDTO.Font) throws {
         self.family = fontDTO.family
+        let defaultVariant = "regular"
+        let noblankFamily = fontDTO.family.replacingOccurrences(of: " ", with: "")
         
-        // sort(?)
-        guard let variant = fontDTO.variants.first else {
+        if let fileURLString = fontDTO.files[defaultVariant], // regular priority
+           let url = URL(string: fileURLString) {
+            self.info = Info(fontName: "\(noblankFamily)-\(defaultVariant)", fileURL: url)
+        } else if let variant = fontDTO.variants.first, // or variants list first
+                  let fileURLString = fontDTO.files[variant],
+                  let url = URL(string: fileURLString) {
+            self.info = Info(fontName: "\(noblankFamily)-\(variant)", fileURL: url)
+        } else {
             throw Error.variantsEmpty
         }
-        
-        guard let fileURLString = fontDTO.files[variant] else {
-            throw Error.missingFileURL
-        }
-        
-        guard let url = URL(string: fileURLString) else {
-            throw Error.invalidFileURLString
-        }
-        
-        let noblankFamily = fontDTO.family.replacingOccurrences(of: " ", with: "")
-        self.info = Info(fontName: "\(noblankFamily)-\(variant)", fileURL: url)
     }
 }
