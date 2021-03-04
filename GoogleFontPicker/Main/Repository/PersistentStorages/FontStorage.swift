@@ -39,10 +39,9 @@ extension FileManagerFontDataStorage: FontStorage {
             guard let self = self,
                   let directoryURL = self.directoryURL else { return }
             do {
-                let fileNames = try self.fileManager.contentsOfDirectory(atPath: directoryURL.path)
-                let result: [FontData] = try fileNames.map { fileName in
-                    let url = directoryURL.appendingPathComponent(fileName)
-                    return try Data(contentsOf: url)
+                let fileURLs = try self.fileManager.contentsOfDirectory(at: directoryURL, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+                let result: [FontData] = try fileURLs.map { fileURL in
+                    return try Data(contentsOf: fileURL)
                 }
                 completion(.success(result))
             } catch {
