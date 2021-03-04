@@ -49,6 +49,12 @@ extension MainViewController {
                 target.fontListTableView.reloadRows(at: [indexPath], with: .none)
             }
         }
+        
+        viewModel.error.observe(on: self) { target, error in
+            let alert = UIAlertController(title: "Oops!", message: error, preferredStyle: .alert)
+            alert.addAction(.init(title: "ok", style: .default, handler: nil))
+            target.present(alert, animated: true, completion: nil)
+        }
     }
 }
 
