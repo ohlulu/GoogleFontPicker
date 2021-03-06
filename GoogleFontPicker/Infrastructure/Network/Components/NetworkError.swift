@@ -52,6 +52,9 @@ public enum NetworkError: Error {
 
     /// An error with receive response
     case responseFailed(reason: ResponseErrorReason)
+    
+    /// An `APIError` with json response
+    case apiError(error: NetworkErrorDTO)
 
     /// An error not be correct defined.
     case undefined(error: Error)

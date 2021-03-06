@@ -56,8 +56,14 @@ class StatusCodeDecision: NetworkDecision {
         action: @escaping (NetworkDecisionAction<R>) -> Void
     ) {
 
-        let reason = NetworkError.ResponseErrorReason.invalidHTTPStatus(code: response.statusCode, data: data)
-        action(.stop(NetworkError.responseFailed(reason: reason)))
+        if let errorDTO = try? JSONDecoder().decode(NetworkErrorDTO.self, from: data) {
+            let error = NetworkError.apiError(error: errorDTO)
+            action(.stop(error))
+        } else {
+            let reason = NetworkError.ResponseErrorReason.invalidHTTPStatus(code: response.statusCode, data: data)
+            action(.stop(NetworkError.responseFailed(reason: reason)))
+        }
+        
     }
 }
 
@@ -112,8 +118,13 @@ class DecodeDecision: NetworkDecision {
             let model = try decoder.decode(R.DataTransferObject.self, from: data)
             action(.done(model))
         } catch {
-            let reason = NetworkError.ResponseErrorReason.decodeFailed(error)
-            action(.stop(NetworkError.responseFailed(reason: reason)))
+            if let errorDTO = try? decoder.decode(NetworkErrorDTO.self, from: data) {
+                let error = NetworkError.apiError(error: errorDTO)
+                action(.stop(error))
+            } else {
+                let reason = NetworkError.ResponseErrorReason.decodeFailed(error)
+                action(.stop(NetworkError.responseFailed(reason: reason)))
+            }
         }
     }
 }

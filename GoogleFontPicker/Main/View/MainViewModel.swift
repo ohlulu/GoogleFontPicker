@@ -171,6 +171,6 @@ private extension MainViewModel {
     }
     
     private func handle(error: Error) {
-        self.error.value = NSLocalizedString("something is wrong: \(error)", comment: "")
+        self.error.value = NSLocalizedString("something is wrong!\n \(error)", comment: "")
     }
 }

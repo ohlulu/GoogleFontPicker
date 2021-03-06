@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		500C71FD25F385120061CA2B /* NetworkErrorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C71FC25F385120061CA2B /* NetworkErrorDTO.swift */; };
 		505ACB1225EE5B0F0047A100 /* DownloadFontUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505ACB1125EE5B0F0047A100 /* DownloadFontUseCase.swift */; };
 		505ACB1725EE5EAF0047A100 /* FontRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505ACB1625EE5EAF0047A100 /* FontRepository.swift */; };
 		50943B9425EA5DBC00FA68A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50943B9325EA5DBC00FA68A4 /* AppDelegate.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		500C71FC25F385120061CA2B /* NetworkErrorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorDTO.swift; sourceTree = "<group>"; };
 		505ACB1125EE5B0F0047A100 /* DownloadFontUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadFontUseCase.swift; sourceTree = "<group>"; };
 		505ACB1625EE5EAF0047A100 /* FontRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontRepository.swift; sourceTree = "<group>"; };
 		50943B9025EA5DBC00FA68A4 /* GoogleFontPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleFontPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +271,7 @@
 				509BFB0325ECCB340045C946 /* URLEncoder.swift */,
 				509BFB0425ECCB340045C946 /* NetworkCancelable.swift */,
 				509BFB0525ECCB340045C946 /* NetworkError.swift */,
+				500C71FC25F385120061CA2B /* NetworkErrorDTO.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				509BFB1525ECCB340045C946 /* NetworkError.swift in Sources */,
 				50943B9625EA5DBC00FA68A4 /* SceneDelegate.swift in Sources */,
 				505ACB1225EE5B0F0047A100 /* DownloadFontUseCase.swift in Sources */,
+				500C71FD25F385120061CA2B /* NetworkErrorDTO.swift in Sources */,
 				509BFB0D25ECCB340045C946 /* NetworkTask.swift in Sources */,
 				50943BE425EA73FE00FA68A4 /* FontListEntity.swift in Sources */,
 				509BFAC125ECC6780045C946 /* FetchFontsUseCase.swift in Sources */,
