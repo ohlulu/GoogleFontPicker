@@ -15,9 +15,9 @@ struct FontListRequest: NetworkRequest {
 
     typealias DataTransferObject = FontListDTO
     
-    var baseURL: URL = URL(string: "https://www.googleapis.com/")!
-    var path: String = "webfonts/v1/webfonts"
-    var method: HTTPMethod = .get
+    let baseURL: URL = URL(string: "https://www.googleapis.com/")!
+    let path: String = "webfonts/v1/webfonts"
+    let method: HTTPMethod = .get
     let parameter = FontListParameter()
     var task: NetworkTask { .urlEncodeEncodable(parameter) }
 }
