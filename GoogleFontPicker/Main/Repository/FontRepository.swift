@@ -53,7 +53,7 @@ extension FontRepository: FontRepositorySpec {
 
 struct DownloadFontRequest: NetworkRequest {
 
-    typealias Entity = Data
+    typealias DataTransferObject = Data
 
     var baseURL: URL
     let path: String = ""

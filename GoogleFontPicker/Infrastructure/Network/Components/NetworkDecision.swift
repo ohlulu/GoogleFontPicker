@@ -17,7 +17,7 @@ public enum NetworkDecisionAction<R: NetworkRequest> {
     case next(Data, HTTPURLResponse)
     case restart([NetworkDecision])
     case stop(NetworkError)
-    case done(R.Entity)
+    case done(R.DataTransferObject)
 }
 
 public protocol NetworkDecision: AnyObject { // easier equatable
@@ -88,7 +88,7 @@ class RetryDecision: NetworkDecision {
     }
 }
 
-/// Last decision, decode data to a `Request.Entity` object.
+/// Last decision, decode data to a `Request.DataTransferObject` object.
 class DecodeDecision: NetworkDecision {
 
     let decoder: JSONDecoder
@@ -109,7 +109,7 @@ class DecodeDecision: NetworkDecision {
     ) {
 
         do {
-            let model = try decoder.decode(R.Entity.self, from: data)
+            let model = try decoder.decode(R.DataTransferObject.self, from: data)
             action(.done(model))
         } catch {
             let reason = NetworkError.ResponseErrorReason.decodeFailed(error)
@@ -131,7 +131,7 @@ class DataTypeTerminatorDecision: NetworkDecision {
         response: HTTPURLResponse,
         action: @escaping (NetworkDecisionAction<R>) -> Void
     ) {
-        action(.done(data as! R.Entity)) 
+        action(.done(data as! R.DataTransferObject)) 
     }
 }
 

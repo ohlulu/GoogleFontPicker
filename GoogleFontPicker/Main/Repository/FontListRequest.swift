@@ -13,7 +13,7 @@ struct FontListParameter: Encodable {
 
 struct FontListRequest: NetworkRequest {
 
-    typealias Entity = FontListDTO
+    typealias DataTransferObject = FontListDTO
     
     var baseURL: URL = URL(string: "https://www.googleapis.com/")!
     var path: String = "webfonts/v1/webfonts"

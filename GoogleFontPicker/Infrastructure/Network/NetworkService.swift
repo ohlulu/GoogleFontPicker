@@ -10,7 +10,7 @@ import Foundation
 
 public protocol NetworkServiceSpec {
     
-    typealias CompletionHandler<R: NetworkRequest> = (Swift.Result<R.Entity, NetworkError>) -> Void
+    typealias CompletionHandler<R: NetworkRequest> = (Swift.Result<R.DataTransferObject, NetworkError>) -> Void
     
     @discardableResult
     func send<R: NetworkRequest>(
@@ -46,7 +46,7 @@ public class NetworkService {
 
 public extension NetworkService {
 
-    typealias CompletionHandler<R: NetworkRequest> = (Swift.Result<R.Entity, NetworkError>) -> Void
+    typealias CompletionHandler<R: NetworkRequest> = (Swift.Result<R.DataTransferObject, NetworkError>) -> Void
 
     @discardableResult
     func send<R: NetworkRequest>(

@@ -11,7 +11,7 @@ import Foundation
 /// ohlulu API request components
 public protocol NetworkRequest {
 
-    associatedtype Entity: Decodable
+    associatedtype DataTransferObject: Decodable
 
     var baseURL: URL { get }
 
