@@ -17,7 +17,8 @@ protocol MainViewModelInput {
 protocol MainViewModelOutput {
     var error: Observable<String> { get }
     var fontList: Observable<[FontTableViewCellViewObject]> { get }
-    var updateIndex: Observable<Int> { get }
+    var updateIndex: Observable<(Int, () -> Void)> { get }
+    var textViewFontName: Observable<String?> { get }
 }
 
 typealias MainViewModelInterface =  MainViewModelInput & MainViewModelOutput
@@ -27,7 +28,8 @@ final class MainViewModel: MainViewModelInterface {
     // Output
     let error: Observable<String> = Observable("")
     let fontList: Observable<[FontTableViewCellViewObject]> = Observable([])
-    let updateIndex: Observable<Int> = Observable(0)
+    let updateIndex: Observable<(Int, () -> Void)> = Observable((0 ,{}))
+    let textViewFontName: Observable<String?> = Observable(nil)
 
     // Property
     private let fetchFontUseCase: FetchFontsUseCase
@@ -62,6 +64,8 @@ extension MainViewModel {
                     self.fontList.value = fontList.map { FontTableViewCellViewObject(entity: $0) }
                     if let index = self.fontList.value.firstIndex(where: { $0.font.fontName != ".SFUI-Regular" }) {
                         self.update(isSelected: true, at: index)
+                        let viewObject = self.fontList.value[index]
+                        self.textViewFontName.value = viewObject.fontName
                     }
                 }
             case .failure(let error):
@@ -73,37 +77,45 @@ extension MainViewModel {
     func didSelectedRow(at index: Int) {
         if !(fontList.value.indices ~= index) { return }
         let viewObject = fontList.value[index]
+        
         if let currentSelectedIndex = currentSelectedIndex {
-            self.update(isSelected: false, at: currentSelectedIndex)
-        }
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
-            self.update(isSelected: true, at: index)
-        }
-        switch viewObject.status {
-        case .notExist:
-            update(viewObjectAt: index, toStatus: .downloading)
-            downloadUseCase.downloadFont(name: viewObject.fontName, url: viewObject.fileURL) { [weak self] result in
-                guard let self = self else { return }
-                switch result {
-                case .success:
-                    self.registerFontUseCase.registerFont(fontName: viewObject.fontName) { result in
-                        DispatchQueue.global().asyncAfter(deadline: .now() + 0.3) { // for test
-                            switch result {
-                            case .success:
-                                self.update(viewObjectAt: index, toStatus: .exist)
-                            case .failure(let error):
-                                self.update(viewObjectAt: index, toStatus: .notExist)
-                                self.handle(error: error)
+            self.update(isSelected: false, at: currentSelectedIndex) {
+                self.update(isSelected: true, at: index) { [weak self] in
+                    guard let self = self else { return }
+                    switch viewObject.status {
+                    case .notExist:
+                        self.update(viewObjectAt: index, toStatus: .downloading) { [weak self] in
+                            guard let self = self else { return }
+                            self.downloadUseCase.downloadFont(name: viewObject.fontName, url: viewObject.fileURL) { [weak self] result in
+                                guard let self = self else { return }
+                                switch result {
+                                case .success:
+                                    self.registerFontUseCase.registerFont(fontName: viewObject.fontName) { result in
+                                        DispatchQueue.global().asyncAfter(deadline: .now() + 0.3) { // for test
+                                            switch result {
+                                            case .success:
+                                                self.update(viewObjectAt: index, toStatus: .exist)
+                                                self.textViewFontName.value = viewObject.fontName
+                                            case .failure(let error):
+                                                self.update(viewObjectAt: index, toStatus: .notExist)
+                                                self.handle(error: error)
+                                            }
+                                        }
+                                    }
+                                case .failure(let error):
+                                    self.handle(error: error)
+                                }
                             }
                         }
+                    case .exist:
+                        self.textViewFontName.value = viewObject.fontName
+                    case .downloading:
+                        break
                     }
-                case .failure(let error):
-                    self.handle(error: error)
                 }
             }
-        case .downloading, .exist:
-            break
         }
+        
     }
 }
 
@@ -129,16 +141,16 @@ private extension MainViewModel {
         }
     }
     
-    func update(viewObjectAt index: Int, toStatus status: FontTableViewCellViewObject.Status) {
+    func update(viewObjectAt index: Int, toStatus status: FontTableViewCellViewObject.Status, completion: @escaping (() -> Void) = {}) {
         let fontEntity = fontList.value[index]
         fontEntity.status = status
         fontEntity.reloadFont()
-        updateIndex.value = index
+        updateIndex.value = (index, completion)
     }
     
-    func update(isSelected: Bool, at index: Int) {
+    func update(isSelected: Bool, at index: Int, completion: @escaping (() -> Void) = {}) {
         fontList.value[index].isSelected = isSelected
-        updateIndex.value = index
+        updateIndex.value = (index, completion)
         if isSelected {
             currentSelectedIndex = index
         }

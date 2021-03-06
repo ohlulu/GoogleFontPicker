@@ -41,14 +41,22 @@ final class MainViewController: UIViewController {
 extension MainViewController {
     
     func observe(viewModel: MainViewModelInterface) {
+        
         viewModel.fontList.observe(on: self) { target, fontList in
             target.fontListTableView.reloadData()
         }
         
-        viewModel.updateIndex.observe(on: self) { target, index in
+        viewModel.updateIndex.observe(on: self) { target, value in
+            let (index, completion) = value
             let indexPath = IndexPath(row: index, section: 0)
             if case .some = target.fontListTableView.cellForRow(at: indexPath) {
-                target.fontListTableView.reloadRows(at: [indexPath], with: .none)
+                UIView.animate(withDuration: 0) {
+                    target.fontListTableView.reloadRows(at: [indexPath], with: .none)
+                } completion: { _ in
+                    completion()
+                }
+            } else {
+                completion()
             }
         }
         
@@ -56,6 +64,15 @@ extension MainViewController {
             let alert = UIAlertController(title: "Oops!", message: error, preferredStyle: .alert)
             alert.addAction(.init(title: "ok", style: .default, handler: nil))
             target.present(alert, animated: true, completion: nil)
+        }
+        
+        viewModel.textViewFontName.observe(on: self) { (target, fontName) in
+            if let fontName = fontName {
+                target.demoTextView.font = UIFont(name: fontName, size: 18)
+            } else {
+                target.demoTextView.font = .systemFont(ofSize: 18)
+            }
+            
         }
     }
 }
@@ -148,6 +165,7 @@ private extension MainViewController {
     
     func makeDemoTextView() -> UITextView {
         let textView = UITextView()
+        textView.text = "Hello word"
         textView.isEditable = false
         textView.layer.borderColor = UIColor.systemGray3.cgColor
         textView.layer.borderWidth = 2
