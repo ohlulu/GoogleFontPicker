@@ -8,7 +8,7 @@
 import Foundation
 
 struct FontListParameter: Encodable {
-    let key = "AIzaSyAu-HVTWv7uqHr2ieEhWXQ3fomyFX90ESY"
+    let key = "your-api-key"
 }
 
 struct FontListRequest: NetworkRequest {
