@@ -42,11 +42,11 @@ extension MainViewController {
     
     func observe(viewModel: MainViewModelInterface) {
         
-        viewModel.fontList.observe(on: self) { target, fontList in
+        viewModel.fontList.bind(on: self) { target, fontList in
             target.fontListTableView.reloadData()
         }
         
-        viewModel.updateIndex.observe(on: self) { target, value in
+        viewModel.updateIndex.bind(on: self) { target, value in
             let (index, completion) = value
             let indexPath = IndexPath(row: index, section: 0)
             if case .some = target.fontListTableView.cellForRow(at: indexPath) {
@@ -60,13 +60,13 @@ extension MainViewController {
             }
         }
         
-        viewModel.error.observe(on: self) { target, error in
+        viewModel.error.bind(on: self) { target, error in
             let alert = UIAlertController(title: "Oops!", message: error, preferredStyle: .alert)
             alert.addAction(.init(title: "ok", style: .default, handler: nil))
             target.present(alert, animated: true, completion: nil)
         }
         
-        viewModel.textViewFontName.observe(on: self) { (target, fontName) in
+        viewModel.textViewFontName.bind(on: self) { (target, fontName) in
             if let fontName = fontName {
                 target.demoTextView.font = UIFont(name: fontName, size: 18)
             } else {

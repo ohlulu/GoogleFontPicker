@@ -15,10 +15,10 @@ protocol MainViewModelInput {
 
 /// Output
 protocol MainViewModelOutput {
-    var error: Observable<String> { get }
-    var fontList: Observable<[FontTableViewCellViewObject]> { get }
-    var updateIndex: Observable<(Int, () -> Void)> { get }
-    var textViewFontName: Observable<String?> { get }
+    var error: Bindable<String> { get }
+    var fontList: Bindable<[FontTableViewCellViewObject]> { get }
+    var updateIndex: Bindable<(Int, () -> Void)> { get }
+    var textViewFontName: Bindable<String?> { get }
 }
 
 typealias MainViewModelInterface =  MainViewModelInput & MainViewModelOutput
@@ -26,11 +26,11 @@ typealias MainViewModelInterface =  MainViewModelInput & MainViewModelOutput
 final class MainViewModel: MainViewModelInterface {
     
     // Output
-    let error: Observable<String> = Observable("")
-    let fontList: Observable<[FontTableViewCellViewObject]> = Observable([])
+    let error: Bindable<String> = Bindable("")
+    let fontList: Bindable<[FontTableViewCellViewObject]> = Bindable([])
     /// 多傳一個 closure 是為了讓 view 更新完 cell 之後可以通知回 viewModel
-    let updateIndex: Observable<(Int, () -> Void)> = Observable((0 ,{}))
-    let textViewFontName: Observable<String?> = Observable(nil)
+    let updateIndex: Bindable<(Int, () -> Void)> = Bindable((0 ,{}))
+    let textViewFontName: Bindable<String?> = Bindable(nil)
 
     // Property
     private let fetchFontUseCase: FetchFontsUseCase

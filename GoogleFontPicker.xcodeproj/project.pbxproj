@@ -39,7 +39,7 @@
 		50DD2CBB25ED3B09006D4768 /* RegisterFontUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DD2CBA25ED3B09006D4768 /* RegisterFontUseCase.swift */; };
 		50DD2CCA25ED4C1B006D4768 /* FontStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DD2CC925ED4C1B006D4768 /* FontStorage.swift */; };
 		50DE4F4725ECDB0C006A19AC /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4F4625ECDB0C006A19AC /* MainViewModel.swift */; };
-		50DE4F4C25ECDC26006A19AC /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4F4B25ECDC26006A19AC /* Observable.swift */; };
+		50DE4F4C25ECDC26006A19AC /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4F4B25ECDC26006A19AC /* Bindable.swift */; };
 		50DE4F5425ECED15006A19AC /* FontTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4F5325ECED15006A19AC /* FontTableViewCell.swift */; };
 		50DE4F5925ECF511006A19AC /* MainSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4F5825ECF511006A19AC /* MainSceneDIContainer.swift */; };
 /* End PBXBuildFile section */
@@ -101,7 +101,7 @@
 		50DD2CBA25ED3B09006D4768 /* RegisterFontUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFontUseCase.swift; sourceTree = "<group>"; };
 		50DD2CC925ED4C1B006D4768 /* FontStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStorage.swift; sourceTree = "<group>"; };
 		50DE4F4625ECDB0C006A19AC /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		50DE4F4B25ECDC26006A19AC /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		50DE4F4B25ECDC26006A19AC /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		50DE4F5325ECED15006A19AC /* FontTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTableViewCell.swift; sourceTree = "<group>"; };
 		50DE4F5825ECF511006A19AC /* MainSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSceneDIContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,7 +239,7 @@
 		509BFACB25ECC9240045C946 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				50DE4F4B25ECDC26006A19AC /* Observable.swift */,
+				50DE4F4B25ECDC26006A19AC /* Bindable.swift */,
 				509BFAF525ECCB340045C946 /* Network */,
 			);
 			path = Infrastructure;
@@ -480,7 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				505ACB1725EE5EAF0047A100 /* FontRepository.swift in Sources */,
-				50DE4F4C25ECDC26006A19AC /* Observable.swift in Sources */,
+				50DE4F4C25ECDC26006A19AC /* Bindable.swift in Sources */,
 				509BFB0A25ECCB340045C946 /* NetworkService.swift in Sources */,
 				50DE4F5425ECED15006A19AC /* FontTableViewCell.swift in Sources */,
 				50943BD725EA677500FA68A4 /* MainViewController.swift in Sources */,
