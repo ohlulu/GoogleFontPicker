@@ -42,9 +42,6 @@
 		50DE4F4C25ECDC26006A19AC /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4F4B25ECDC26006A19AC /* Observable.swift */; };
 		50DE4F5425ECED15006A19AC /* FontTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4F5325ECED15006A19AC /* FontTableViewCell.swift */; };
 		50DE4F5925ECF511006A19AC /* MainSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4F5825ECF511006A19AC /* MainSceneDIContainer.swift */; };
-		95576037E813CB3B24E67230 /* Pods_GoogleFontPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B81B2A95BD2E702DBEAF526D /* Pods_GoogleFontPicker.framework */; };
-		BC696397F84000015C85E845 /* Pods_GoogleFontPicker_GoogleFontPickerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB5462630CE753CC1125269 /* Pods_GoogleFontPicker_GoogleFontPickerUITests.framework */; };
-		C21673AC14FFC15030BAAD81 /* Pods_GoogleFontPickerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E8F794478AEED2500CF23F /* Pods_GoogleFontPickerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,9 +62,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0421805482EB53F0422E8E5D /* Pods-GoogleFontPicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleFontPicker.release.xcconfig"; path = "Target Support Files/Pods-GoogleFontPicker/Pods-GoogleFontPicker.release.xcconfig"; sourceTree = "<group>"; };
-		0E9E933BCDA6A5686A6F3549 /* Pods-GoogleFontPickerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleFontPickerTests.debug.xcconfig"; path = "Target Support Files/Pods-GoogleFontPickerTests/Pods-GoogleFontPickerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4284E0DCC610424BC090DD64 /* Pods-GoogleFontPickerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleFontPickerTests.release.xcconfig"; path = "Target Support Files/Pods-GoogleFontPickerTests/Pods-GoogleFontPickerTests.release.xcconfig"; sourceTree = "<group>"; };
 		505ACB1125EE5B0F0047A100 /* DownloadFontUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadFontUseCase.swift; sourceTree = "<group>"; };
 		505ACB1625EE5EAF0047A100 /* FontRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontRepository.swift; sourceTree = "<group>"; };
 		50943B9025EA5DBC00FA68A4 /* GoogleFontPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleFontPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,12 +104,6 @@
 		50DE4F4B25ECDC26006A19AC /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		50DE4F5325ECED15006A19AC /* FontTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTableViewCell.swift; sourceTree = "<group>"; };
 		50DE4F5825ECF511006A19AC /* MainSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSceneDIContainer.swift; sourceTree = "<group>"; };
-		5345EB520536BE34D79EAF6C /* Pods-GoogleFontPicker-GoogleFontPickerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleFontPicker-GoogleFontPickerUITests.debug.xcconfig"; path = "Target Support Files/Pods-GoogleFontPicker-GoogleFontPickerUITests/Pods-GoogleFontPicker-GoogleFontPickerUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		59E2A2693679D46C8CFC3337 /* Pods-GoogleFontPicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleFontPicker.debug.xcconfig"; path = "Target Support Files/Pods-GoogleFontPicker/Pods-GoogleFontPicker.debug.xcconfig"; sourceTree = "<group>"; };
-		5BB5462630CE753CC1125269 /* Pods_GoogleFontPicker_GoogleFontPickerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleFontPicker_GoogleFontPickerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		836E1BF58E990BAA2208BB6D /* Pods-GoogleFontPicker-GoogleFontPickerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleFontPicker-GoogleFontPickerUITests.release.xcconfig"; path = "Target Support Files/Pods-GoogleFontPicker-GoogleFontPickerUITests/Pods-GoogleFontPicker-GoogleFontPickerUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B81B2A95BD2E702DBEAF526D /* Pods_GoogleFontPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleFontPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8E8F794478AEED2500CF23F /* Pods_GoogleFontPickerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleFontPickerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +111,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95576037E813CB3B24E67230 /* Pods_GoogleFontPicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +118,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C21673AC14FFC15030BAAD81 /* Pods_GoogleFontPickerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +125,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC696397F84000015C85E845 /* Pods_GoogleFontPicker_GoogleFontPickerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,9 +134,6 @@
 		143B6BE5A1B2B6596C6B3B1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B81B2A95BD2E702DBEAF526D /* Pods_GoogleFontPicker.framework */,
-				5BB5462630CE753CC1125269 /* Pods_GoogleFontPicker_GoogleFontPickerUITests.framework */,
-				D8E8F794478AEED2500CF23F /* Pods_GoogleFontPickerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,7 +145,6 @@
 				50943BA925EA5DBE00FA68A4 /* GoogleFontPickerTests */,
 				50943BB425EA5DBE00FA68A4 /* GoogleFontPickerUITests */,
 				50943B9125EA5DBC00FA68A4 /* Products */,
-				977528D39EF5505BB25FCC7C /* Pods */,
 				143B6BE5A1B2B6596C6B3B1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -318,19 +299,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		977528D39EF5505BB25FCC7C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				59E2A2693679D46C8CFC3337 /* Pods-GoogleFontPicker.debug.xcconfig */,
-				0421805482EB53F0422E8E5D /* Pods-GoogleFontPicker.release.xcconfig */,
-				5345EB520536BE34D79EAF6C /* Pods-GoogleFontPicker-GoogleFontPickerUITests.debug.xcconfig */,
-				836E1BF58E990BAA2208BB6D /* Pods-GoogleFontPicker-GoogleFontPickerUITests.release.xcconfig */,
-				0E9E933BCDA6A5686A6F3549 /* Pods-GoogleFontPickerTests.debug.xcconfig */,
-				4284E0DCC610424BC090DD64 /* Pods-GoogleFontPickerTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -338,7 +306,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50943BBA25EA5DBE00FA68A4 /* Build configuration list for PBXNativeTarget "GoogleFontPicker" */;
 			buildPhases = (
-				E3E61EB70D9C89EE3A42A263 /* [CP] Check Pods Manifest.lock */,
 				50943B8C25EA5DBC00FA68A4 /* Sources */,
 				50943B8D25EA5DBC00FA68A4 /* Frameworks */,
 				50943B8E25EA5DBC00FA68A4 /* Resources */,
@@ -499,28 +466,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-GoogleFontPickerTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E3E61EB70D9C89EE3A42A263 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GoogleFontPicker-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -728,7 +673,6 @@
 		};
 		50943BBB25EA5DBE00FA68A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59E2A2693679D46C8CFC3337 /* Pods-GoogleFontPicker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -748,7 +692,6 @@
 		};
 		50943BBC25EA5DBE00FA68A4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0421805482EB53F0422E8E5D /* Pods-GoogleFontPicker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -768,7 +711,6 @@
 		};
 		50943BBE25EA5DBE00FA68A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E9E933BCDA6A5686A6F3549 /* Pods-GoogleFontPickerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -794,7 +736,6 @@
 		};
 		50943BBF25EA5DBE00FA68A4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4284E0DCC610424BC090DD64 /* Pods-GoogleFontPickerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -819,7 +760,6 @@
 		};
 		50943BC125EA5DBE00FA68A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5345EB520536BE34D79EAF6C /* Pods-GoogleFontPicker-GoogleFontPickerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -840,7 +780,6 @@
 		};
 		50943BC225EA5DBE00FA68A4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 836E1BF58E990BAA2208BB6D /* Pods-GoogleFontPicker-GoogleFontPickerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

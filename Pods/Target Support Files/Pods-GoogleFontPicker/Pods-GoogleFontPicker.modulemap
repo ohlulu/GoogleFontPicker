@@ -1,6 +1,0 @@
-framework module Pods_GoogleFontPicker {
-  umbrella header "Pods-GoogleFontPicker-umbrella.h"
-
-  export *
-  module * { export * }
-}
