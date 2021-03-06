@@ -17,6 +17,7 @@ class RegisterFontUseCase {
         self.repository = repository
     }
     
+    /// Register all font, font data from repository
     func registerAll(completion: @escaping ((Result<Void, Error>) -> Void)) {
         
         repository.listAllFontData { result in
@@ -35,6 +36,7 @@ class RegisterFontUseCase {
         }
     }
     
+    /// Register one font with font name, font data from repository
     func registerFont(fontName: String, completion: @escaping ((Result<Void, Error>) -> Void)) {
         repository.readFontData(fontName: fontName) { result in
             switch result {

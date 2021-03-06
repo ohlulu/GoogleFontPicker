@@ -20,6 +20,9 @@ protocol FontStorage {
 
 final class FileManagerFontDataStorage {
     
+    private enum StorageError: Error {
+        case fontNotExist
+    }
     private let fileManager: FileManager
     private let directoryURL: URL?
     
@@ -60,6 +63,8 @@ extension FileManagerFontDataStorage: FontStorage {
                 if self.fileManager.fileExists(atPath: tragetFileURL.path) {
                     let data = try Data(contentsOf: tragetFileURL)
                     completion(.success(data))
+                } else {
+                    completion(.failure(StorageError.fontNotExist))
                 }
             } catch {
                 completion(.failure(error))
